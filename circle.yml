@@ -1,0 +1,9 @@
+machine:
+  ruby:
+    version: 2.3.0
+
+test:
+  override:
+  - RACK_ENV=test bundle exec rake db:create
+  - RACK_ENV=test bundle exec rake db:migrate
+  - bundle exec rake

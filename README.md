@@ -1,8 +1,8 @@
-santa
+Santa
 ====
+Develop [![Circle CI](https://circleci.com/gh/takoman/santa/tree/develop.svg?style=svg&circle-token=1d346c8e80582ca19250f0ebc068e33ad89c0284)](https://circleci.com/gh/takoman/santa/tree/develop), Master [![Circle CI](https://circleci.com/gh/takoman/santa/tree/master.svg?style=svg&circle-token=1d346c8e80582ca19250f0ebc068e33ad89c0284)](https://circleci.com/gh/takoman/santa/tree/master)
 
-This is a Grape + Rack ([Gris](http://github.com/dylanfareed/gris)) hypermedia API service.
-
+Santa is Pickee's main API. It is a Grape + Rack ([Gris](http://github.com/artsy/gris)) hypermedia API service.
 
 Set-Up for Development
 ---
@@ -11,7 +11,7 @@ Set-Up for Development
 - Clone your fork locally
 - Bundle
 ```
-cd your-fork-directory
+cd santa
 bundle
 ```
 - Set up the database
