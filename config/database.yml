@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASS'] %>
+  pool: 5
+
+development:
+  <<: *default
+  database: santa_development
+
+test:
+  <<: *default
+  database: santa_test
