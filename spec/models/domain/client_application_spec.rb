@@ -29,7 +29,7 @@ describe ClientApplication, type: :model do
     before do
       @client_app = Fabricate(:client_application)
     end
-    context 'with granted access' do
+    context 'without granted access' do
       it 'does not authenticate' do
         expect(ClientApplication.authenticate(@client_app.app_id, @client_app.app_secret)).to be nil
       end

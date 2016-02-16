@@ -10,6 +10,7 @@ module V1
 
         # Additional endpoint links
         endpoint_link :health
+        endpoint_link :tokens
       end
     end
   end
