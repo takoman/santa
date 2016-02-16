@@ -9,6 +9,7 @@ gem 'json'
 gem 'gris'
 gem 'gris_paginator'
 
+gem 'encryptor', '~> 1.1.3'
 gem 'roar'
 gem 'grape-roar', '~> 0.3.0'
 gem 'grape-swagger'
@@ -21,6 +22,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
   gem 'rubocop', require: false
   gem 'shotgun', require: false
 end
@@ -30,6 +32,7 @@ group :test do
   gem 'rspec'
   gem 'rack-test'
   gem 'simplecov'
+  gem 'timecop'
   gem 'webmock'
   gem 'database_cleaner'
 end
