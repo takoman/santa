@@ -7,3 +7,8 @@ require './config/application' if File.file?('config/application.rb')
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# Seed the roles table
+%w(user partner admin).each do |role_name|
+  Role.create! name: role_name
+end
