@@ -7,8 +7,8 @@ describe Role, type: :model do
   it { should validate_uniqueness_of(:name) }
   it { should have_and_belong_to_many(:users) }
   it do
-    should validate_inclusion_of(:name).
-      in_array(Role::ROLES)
+    should validate_inclusion_of(:name)
+      .in_array(Role::ROLES)
   end
 
   it 'has unique users for each role' do
