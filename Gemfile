@@ -8,12 +8,14 @@ gem 'json'
 
 gem 'gris'
 gem 'gris_paginator'
-
-gem 'encryptor', '~> 1.1.3'
 gem 'roar'
 gem 'grape-roar', '~> 0.3.0'
 gem 'grape-swagger'
 gem 'kaminari', '~> 0.16.2', require: 'kaminari/grape'
+
+gem 'encryptor', '~> 1.1.3'
+gem 'bcrypt'
+
 gem 'puma'
 
 group :development, :test do
@@ -28,11 +30,12 @@ group :development do
 end
 
 group :test do
+  gem 'database_cleaner'
   gem 'fabrication'
   gem 'rspec'
   gem 'rack-test'
   gem 'simplecov'
+  gem 'shoulda-matchers'
   gem 'timecop'
   gem 'webmock'
-  gem 'database_cleaner'
 end
