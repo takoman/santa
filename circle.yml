@@ -1,9 +1,24 @@
 machine:
   ruby:
     version: 2.3.0
+  environment:
+    STAGING_APP: ${CIRCLE_PROJECT_REPONAME}-staging
+    PRODUCTION_APP: ${CIRCLE_PROJECT_REPONAME}-production
 
 test:
   override:
-  - RACK_ENV=test bundle exec rake db:create
-  - RACK_ENV=test bundle exec rake db:migrate
-  - bundle exec rake
+    - RACK_ENV=test bundle exec rake db:create
+    - RACK_ENV=test bundle exec rake db:migrate
+    - bundle exec rake
+
+deployment:
+  staging:
+    branch: develop
+    commands:
+      - git push --force git@heroku.com:${STAGING_APP}.git ${CIRCLE_SHA1}:refs/heads/master
+      - heroku run rake db:migrate --app ${STAGING_APP}
+  production:
+    branch: master
+    commands:
+      - git push --force git@heroku.com:${PRODUCTION_APP}.git ${CIRCLE_SHA1}:refs/heads/master
+      - heroku run rake db:migrate --app ${PRODUCTION_APP}
