@@ -32,7 +32,7 @@ module UserTrust
     data = {
       id: SecureRandom.hex(10),
       user_id: user.id.to_s,
-      password_digest: user.password_digest,
+      password_digest: user.password_digest
     }
     if options[:application]
       application = options[:application]
