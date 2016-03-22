@@ -18,9 +18,11 @@ module ApplicationTrust
     application = options[:application]
     raise 'missing application' unless application
     raise 'application is disabled' unless application.access_granted?
-    data = {}
-    data[:id] = SecureRandom.hex 10
-    data[:application_id] = application.id.to_s
+
+    data = {
+      id: SecureRandom.hex(10),
+      application_id: application.id.to_s
+    }
     Trust.encrypt(data, options)
   end
 end
