@@ -3,6 +3,7 @@ module V1
     module Endpoints
       class UsersEndpoint < Grape::API
         namespace :users do
+          # POST /users
           desc 'Create new user.'
           params do
             requires :user, type: Hash do
@@ -20,6 +21,7 @@ module V1
             present user, with: V1::Anonymous::Presenters::UserPresenter
           end
 
+          # GET /users/:id
           desc 'Retrieve existing user.'
           params do
             requires :id, desc: 'ID of the user.'
