@@ -16,6 +16,8 @@
 #
 
 Fabricator(:user) do
-  name Fabricate.sequence(:name) { |i| "user-name-#{i}" }
-  email Fabricate.sequence(:email) { |i| "user-#{i}@email.com" }
+  # NOTE: To produce dynamic values, pass a block to the attribute.
+  # That is, name { ... }
+  name { Fabricate.sequence(:name) { |i| "user-name-#{i}" } }
+  email { Fabricate.sequence(:email) { |i| "user-#{i}@email.com" } }
 end
