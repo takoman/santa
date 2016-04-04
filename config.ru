@@ -6,6 +6,7 @@ require File.expand_path('../config/application.rb', __FILE__)
 
 app = Rack::Builder.new do
   use ActiveRecord::ConnectionAdapters::ConnectionManagement
+  use Rack::SslEnforcer, redirect_html: false, only_environments: ['production']
   use Rack::Session::Cookie, secret: Gris.secrets.secret_key_base
   use Warden::Manager do |manager|
     # manager.default_strategies :password

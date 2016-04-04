@@ -154,6 +154,7 @@ GEM
     rack-cors (0.4.0)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
+    rack-ssl-enforcer (0.2.9)
     rack-test (0.6.3)
       rack (>= 1.0)
     racksh (1.0.0)
@@ -245,6 +246,7 @@ DEPENDENCIES
   pry
   puma
   rack-cors
+  rack-ssl-enforcer
   rack-test
   roar
   rspec
