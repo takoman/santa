@@ -154,6 +154,7 @@ GEM
     rack-cors (0.4.0)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
+    rack-ssl-enforcer (0.2.9)
     rack-test (0.6.3)
       rack (>= 1.0)
     racksh (1.0.0)
@@ -217,6 +218,8 @@ GEM
       coercible (~> 1.0)
       descendants_tracker (~> 0.0, >= 0.0.3)
       equalizer (~> 0.0, >= 0.0.9)
+    warden (1.2.6)
+      rack (>= 1.0)
     webmock (1.22.6)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -243,6 +246,7 @@ DEPENDENCIES
   pry
   puma
   rack-cors
+  rack-ssl-enforcer
   rack-test
   roar
   rspec
@@ -251,6 +255,7 @@ DEPENDENCIES
   shoulda-matchers
   simplecov
   timecop
+  warden
   webmock
 
 BUNDLED WITH

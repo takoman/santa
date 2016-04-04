@@ -5,9 +5,9 @@ describe V1::Anonymous::Endpoints::UsersEndpoint do
   context 'with a running app and a client accessing V1::Anonymous' do
     include_context 'with a running app'
 
-    it_should_behave_like 'an endpoint with xapp_token_authentication!', [
-      ['post', '/users', 'Accept', 'application/vnd.santa-v1-anonymous+json'],
-      ['get', '/users/1', 'Accept', 'application/vnd.santa-v1-anonymous+json']
+    it_behaves_like 'an endpoint with xapp_token_authenticate!', [
+      ['post', '/users'],
+      ['get', '/users/1']
     ]
   end
 

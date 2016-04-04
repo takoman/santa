@@ -15,8 +15,10 @@ gem 'kaminari', '~> 0.16.2', require: 'kaminari/grape'
 
 gem 'encryptor', '~> 1.1.3'
 gem 'bcrypt'
+gem 'warden'
 
 gem 'puma'
+gem 'rack-ssl-enforcer'
 
 group :development, :test do
   gem 'pry'

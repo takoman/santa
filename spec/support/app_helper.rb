@@ -10,6 +10,17 @@ shared_context 'with a client app' do
   end
 end
 
+shared_context 'with a client app and a user' do
+  include_context 'with a client app'
+
+  let(:user) { Fabricate(:user) }
+  let(:expires_at) { 1.day.from_now }
+  let(:access_token) do
+    UserTrust.create_for_token_authentication(
+      user: user, application: client_app, expires_at: expires_at)
+  end
+end
+
 shared_context 'with a running app and a client accessing V1::Public' do
   include_context 'with a running app'
 
@@ -53,6 +64,23 @@ shared_context 'with a running app and an authorized client accessing V1::Anonym
         conn.use Faraday::Adapter::Rack, app
       end
       client.headers.update('Accept' => 'application/vnd.santa-v1-anonymous+json')
+    end
+  end
+end
+
+shared_context 'with a running app and an authorized client and user accessing V1::Authorized' do
+  include_context 'with a running app'
+  include_context 'with a client app and a user'
+
+  let(:client) do
+    Hyperclient.new(Gris::Identity.base_url) do |client|
+      client.headers['X-ACCESS-TOKEN'] = access_token
+      client.connection(default: false) do |conn|
+        conn.request :hal_json
+        conn.response :json
+        conn.use Faraday::Adapter::Rack, app
+      end
+      client.headers.update('Accept' => 'application/vnd.santa-v1-authorized+json')
     end
   end
 end
