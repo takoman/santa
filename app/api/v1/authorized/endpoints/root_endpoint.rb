@@ -21,6 +21,7 @@ module V1
 
         # Additional mounted endpoints
         mount V1::Authorized::Endpoints::UsersEndpoint
+        mount V1::Authorized::Endpoints::CurrentUserEndpoint
       end
     end
   end
