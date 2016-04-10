@@ -10,6 +10,7 @@ module V1
 
         # Additional endpoint links
         resource_links :user, [:sort]
+        endpoint_link :current_user
       end
     end
   end
